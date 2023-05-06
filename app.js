@@ -12,6 +12,11 @@ const flightRouter = require('./router/flightRouter');
 const hotelRouter = require('./router/hotelRouter');
 const trainRouter = require('./router/trainRouter');
 
+const DB_URI = process.env.DB_URI;
+mongoose.connect(DB_URI).then(conn => {
+	console.log(`DB connection successfull! : ${conn.connection.host}`);
+});
+
 app.use('/api/v1/flights', flightRouter);
 app.use('/api/v1/trains', trainRouter);
 app.use('/api/v1/hotels', hotelRouter);
