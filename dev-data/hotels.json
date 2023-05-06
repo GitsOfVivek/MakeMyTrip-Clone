@@ -1,0 +1,52 @@
+[
+	{
+		"city": "Goa",
+		"hotel_name": "Boshan Hotels",
+		"check_in": "2023-02-15",
+		"check_out": "2023-02-20",
+		"room_type": "Double",
+		"price_per_night": "4000",
+		"guests": "2",
+		"rating": "7"
+	},
+	{
+		"city": "Delhi",
+		"hotel_name": "Roseate House",
+		"check_in": "2023-02-14",
+		"check_out": "2023-02-27",
+		"room_type": "Double",
+		"price_per_night": "5500",
+		"guests": "2",
+		"rating": "8.5"
+	},
+	{
+		"city": "Mumbai",
+		"hotel_name": "Ginger",
+		"check_in": "2023-02-15",
+		"check_out": "2023-02-18",
+		"room_type": "King",
+		"price_per_night": "8000",
+		"guests": "5-6",
+		"rating": "7.5"
+	},
+	{
+		"city": "Mumbai",
+		"hotel_name": "Lemon Tree",
+		"check_in": "2023-02-16",
+		"check_out": "2023-02-20",
+		"room_type": "Single",
+		"price_per_night": "1795",
+		"guests": "1",
+		"rating": "8.5"
+	},
+	{
+		"city": "Manali",
+		"hotel_name": "Hotel Snow View Manali",
+		"check_in": "2023-02-15",
+		"check_out": "2023-02-22",
+		"room_type": "Double",
+		"price_per_night": "3000",
+		"guests": "2",
+		"rating": "7"
+	}
+]

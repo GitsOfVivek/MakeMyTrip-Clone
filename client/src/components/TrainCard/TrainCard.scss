@@ -1,0 +1,94 @@
+.train-card-wrapper {
+	height: 300px;
+	width: 65%;
+	margin: auto;
+	background: #fff;
+	box-shadow: 2px 0px 10px #2727275b;
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	transition: all 0.3s ease;
+	z-index: 999;
+
+	.train-card {
+		height: 100%;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+
+		.sec {
+			width: 100%;
+			padding: 1rem 3rem;
+			display: flex;
+			align-items: baseline;
+			justify-content: center;
+			flex-direction: column;
+			gap: 20px;
+
+			div {
+				width: 100%;
+				display: flex;
+				align-items: flex-start;
+				justify-content: center;
+				flex-direction: column;
+				.val {
+					width: 100%;
+					display: flex;
+					font-size: 30px;
+					font-weight: 700;
+				}
+				.date {
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+					flex-direction: column;
+
+					& > div {
+						display: flex;
+						align-items: baseline;
+						justify-content: flex-start;
+						flex-direction: row;
+						gap: 10px;
+						font-size: 1.7rem;
+						font-weight: 700;
+						span {
+							font-size: 2.2rem;
+							font-weight: 700;
+						}
+						p {
+							font-size: 1.2rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	.book-now {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translate(-50%, -15px);
+		padding: 8px 50px;
+		background: var(--color-btn-primary-bg);
+		cursor: pointer;
+		outline: none;
+		border: none;
+		border-radius: 100px;
+		transition: transform 0.3s ease;
+		font-weight: 700;
+		font-size: 1.3rem;
+		color: #fff;
+
+		&:hover {
+			background: var(--color-btn-primary-bg-hover);
+		}
+	}
+
+	&:hover {
+		transform: scale(1.02);
+		background: #f3f9ff;
+	}
+}

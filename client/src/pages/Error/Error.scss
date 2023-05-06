@@ -1,0 +1,17 @@
+.error-comp-wrapper {
+	width: 100%;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+
+	.error {
+		width: 100%;
+		height: 570px;
+		background: var(--bg-input);
+
+		.container {
+			width: 65%;
+			margin: auto;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+.error-wrapper {
+	width: 100%;
+	height: 200px;
+	.error {
+		height: 100%;
+		width: 65%;
+		margin: auto;
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: 0 0 20px #00000033;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		div {
+			font-size: 1.6rem;
+			padding-bottom: 1rem;
+		}
+	}
+}

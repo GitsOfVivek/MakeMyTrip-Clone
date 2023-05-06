@@ -1,0 +1,104 @@
+.header2-wrapper {
+	height: 60px;
+	width: 100%;
+	z-index: 9999;
+	position: fixed;
+	background: #fff;
+	box-shadow: 0 2px 5px #2525254b;
+
+	.header2 {
+		height: 100%;
+		width: 65%;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 5px 0;
+
+		.logo {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img {
+				height: 70%;
+			}
+		}
+		.navigation-wrapper-2 {
+			height: 60px;
+			border-radius: 10px;
+			z-index: 9;
+
+			.navigation {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+
+				.nav-link {
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					padding: 0 10px;
+
+					.icon {
+						font-size: 25px;
+					}
+					span {
+						font-size: 0.9rem;
+						margin-top: 2px;
+					}
+				}
+				.active {
+					color: var(--color-primary);
+					border-bottom: 4px solid var(--color-primary);
+				}
+			}
+		}
+		.right-sec {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.login {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 17px 20px;
+				border-radius: 5px;
+				font-size: 0.7rem;
+				font-weight: 600;
+				color: #000;
+				height: 90%;
+				gap: 10px;
+				background: #fff;
+
+				.user-name {
+					font-size: 15px;
+					font-weight: 600;
+					height: 40px;
+					width: 100px;
+					border-radius: 5px;
+					background: var(--color-btn-primary-bg);
+					color: #fff;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				img {
+					height: 25px;
+					border-radius: 100%;
+					background: linear-gradient(45deg, #ace143, #219393);
+				}
+				.down-arrow {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

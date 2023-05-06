@@ -1,0 +1,345 @@
+.checkout-wrapper {
+	width: 100%;
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	.checkout {
+		width: 100%;
+		height: 570px;
+		background: var(--bg-input);
+		position: absolute;
+		top: 0;
+	}
+	.container {
+		// width: 65%;
+		margin: auto;
+
+		.input-box-wrapper {
+			width: 1000px;
+			// height: 650px;
+			margin: auto;
+			padding-top: 112px;
+			.input-box {
+				height: 100%;
+				position: relative;
+				border-radius: 10px;
+				display: grid;
+				grid-template-columns: 2.5fr 1fr;
+				gap: 1rem;
+
+				.ticket-info {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					gap: 1rem;
+					.complete {
+						width: 100%;
+						background: #fff;
+						box-shadow: 0 0 10px #0000003a;
+						border-radius: 5px;
+						padding: 10px 20px;
+
+						.heading {
+							font-size: 18px;
+							font-weight: 700;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							margin-bottom: 1rem;
+						}
+						.details {
+							display: grid;
+							grid-template-rows: repeat(5, 1fr);
+
+							& > div {
+								height: 50px;
+								border-bottom: 1px solid #0000003a;
+								display: flex;
+								align-items: center;
+								justify-content: flex-start;
+
+								&:last-child {
+									border: none;
+								}
+
+								& > span {
+									&:first-child {
+										font-size: 15;
+										font-weight: 700;
+										width: 50%;
+									}
+								}
+							}
+						}
+					}
+					.payment {
+						width: 100%;
+						background: #fff;
+						box-shadow: 0 0 10px #0000003a;
+						border-radius: 5px;
+						padding: 10px 20px;
+
+						.heading {
+							font-size: 18px;
+							font-weight: 700;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							margin-bottom: 1rem;
+						}
+						.all-inputs {
+							width: 100%;
+							& > div {
+								width: 100%;
+								margin: 10px 0;
+								& > label {
+									width: 100%;
+									display: block;
+									padding: 5px 0;
+									font-size: 18px;
+									font-weight: 00;
+								}
+
+								& > input {
+									width: 100%;
+									font-size: 18px;
+									padding: 10px 20px;
+									outline: none;
+									border: 1px solid #0000003a;
+									border-radius: 5px;
+
+									&::placeholder {
+										opacity: 0.7;
+									}
+								}
+							}
+						}
+
+						& > button {
+							width: 100%;
+							padding: 10px 0;
+							font-size: 18px;
+							outline: none;
+							border: none;
+							background: var(--color-btn);
+							color: #fff;
+							cursor: pointer;
+							border-radius: 5px;
+							margin-bottom: 1rem;
+						}
+					}
+				}
+
+				.right {
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					flex-direction: column;
+					gap: 1rem;
+					.summary {
+						width: 100%;
+						background: #fff;
+						box-shadow: 0 0 10px #0000003a;
+						border-radius: 5px;
+						padding: 10px 20px;
+						display: grid;
+						grid-template-rows: 1fr 2.5fr 1fr;
+						gap: 10px;
+
+						.heading,
+						.total > div {
+							font-size: 18px;
+							font-weight: 700;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+						}
+						.fare {
+							.base,
+							.taxes {
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+								padding: 10px 0;
+
+								span {
+									display: flex;
+									align-items: center;
+									gap: 5px;
+
+									&:first-child {
+										font-weight: 600;
+									}
+								}
+							}
+							.base {
+								border-bottom: 1px solid #72727281;
+							}
+							.taxes {
+								border-bottom: 1px solid #383838;
+							}
+						}
+					}
+					.promo {
+						width: 100%;
+						// height: 500px;
+						background: #fff;
+						box-shadow: 0 0 10px #0000003a;
+						border-radius: 5px;
+						padding: 10px 20px;
+						display: grid;
+						grid-template-rows: 50px 1fr;
+						gap: 10px;
+
+						.heading,
+						.total > div {
+							font-size: 18px;
+							font-weight: 700;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+						}
+
+						.code-wrapper {
+							width: 100%;
+							.promo-input {
+								width: 100%;
+								padding: 5px 10px;
+								font-size: 1.5rem;
+								font-weight: 700;
+								text-transform: uppercase;
+								outline: none;
+								border: 1px solid #0000003a;
+								border-radius: 3px;
+
+								&::placeholder {
+									font-size: 1rem;
+									font-weight: 600;
+									text-transform: capitalize;
+									opacity: 0.7;
+								}
+							}
+							.code {
+								width: 100%;
+								background: #c7c7c75d;
+								margin: 10px 0;
+								border-radius: 3px;
+								padding: 5px 10px;
+								cursor: pointer;
+
+								span {
+									display: block;
+									font-size: 20px;
+									font-weight: 600;
+									text-align: left;
+									padding: 5px 0;
+								}
+								p {
+									margin-bottom: 10px;
+									text-align: left;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.modal-wrapper {
+		height: calc(100vh - 60px);
+		width: 100vw;
+		background: #00000067;
+		z-index: 99999;
+		position: fixed;
+		top: 60px;
+		left: 50%;
+		transform: translate(-50%, 0);
+
+		.modal {
+			height: 450px;
+			width: 450px;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 999990;
+			background: #fff;
+			box-shadow: 0 0 10px #0000003a;
+			border-radius: 10px;
+			animation: zerotohero 0.2s ease-in-out;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			padding: 20px 60px;
+
+			.top {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				gap: 2rem;
+				padding-bottom: 1rem;
+				border-bottom: 1px solid #0000003a;
+				.icon {
+					background: green;
+					box-shadow: 0 0 30px rgb(50, 214, 50);
+					padding: 10px;
+					border-radius: 100%;
+					color: #fff;
+					font-size: 7rem;
+					z-index: 999999999999;
+				}
+
+				div {
+					font-size: 2rem;
+					font-weight: 700;
+					color: green;
+				}
+			}
+
+			.bottom {
+				width: 100%;
+				padding-top: 1rem;
+
+				div {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					border-bottom: 1px solid #00000023;
+					padding: 10px 0;
+
+					span {
+						font-size: 1.4rem;
+
+						&:first-child {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+
+		.hidden {
+			display: none;
+		}
+		@keyframes zerotohero {
+			0% {
+				height: 0;
+				width: 0;
+			}
+
+			100% {
+				height: 500px;
+				width: 500px;
+			}
+		}
+	}
+}
