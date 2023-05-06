@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import './FlightInputBox.scss';
 import { TbArrowsExchange } from 'react-icons/tb';
 import { BiChevronDown } from 'react-icons/bi';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import date from 'date-and-time';
+import { useNavigate } from 'react-router-dom';
 
 const FlightInputBox = ({ flights, setFilteredFlight }) => {
 	const [type, setType] = useState('oneway');
@@ -16,7 +17,7 @@ const FlightInputBox = ({ flights, setFilteredFlight }) => {
 		return: '2023-02-15',
 	};
 	const [state, setState] = useState(initialSate);
-
+	const navigate = useNavigate();
 	const changeHandler = e => {
 		const { name, value } = e.target;
 		setState({
@@ -35,6 +36,9 @@ const FlightInputBox = ({ flights, setFilteredFlight }) => {
 	};
 
 	const searchHandler = () => {
+		if (!flights) {
+			navigate('/');
+		}
 		setFilteredFlight(
 			flights.filter(
 				flight =>
