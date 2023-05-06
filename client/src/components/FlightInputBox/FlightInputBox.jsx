@@ -38,6 +38,7 @@ const FlightInputBox = ({ flights, setFilteredFlight }) => {
 	const searchHandler = () => {
 		if (!flights) {
 			navigate('/flights');
+			return;
 		}
 		setFilteredFlight(
 			flights.filter(
