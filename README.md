@@ -1,7 +1,6 @@
 # Make My Trip Clone - _Full Stack MERN App_
 
--   App Demo Link : **_[MakeMyTrip Clone](https://make-my-trip-clone-react.vercel.app/)_**
--   Frontend Repo : **_[MMT - Frontend](https://github.com/GitsOfVivek/MakeMyTrip-Clone-React)_**
+-   App Demo Link : **_[MakeMyTrip Clone](https://makemytrip-vivek.netlify.app/)_**
 
 ## Features
 
