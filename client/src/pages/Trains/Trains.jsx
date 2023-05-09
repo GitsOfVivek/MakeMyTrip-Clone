@@ -5,7 +5,7 @@ import './Trains.scss';
 import axios from 'axios';
 import { TRAIN_API_LINK } from '../../config';
 import Loading from '../../components/Loading/Loading';
-import Error from '../../components/Error/Error';
+import Error from './../../components/Error/Error';
 import NoContent from '../../components/NoContent/NoContent';
 
 const Trains = () => {

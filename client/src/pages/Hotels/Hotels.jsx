@@ -4,7 +4,7 @@ import HotelInputBox from '../../components/HotelInputBox/HotelInputBox';
 import './Hotels.scss';
 import axios from 'axios';
 import { HOTEL_API_LINK } from '../../config';
-import Error from './../Error/Error';
+import Error from './../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
 import NoContent from '../../components/NoContent/NoContent';
 

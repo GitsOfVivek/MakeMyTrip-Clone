@@ -4,7 +4,7 @@ import FlightInputBox from '../../components/FlightInputBox/FlightInputBox';
 import './Flights.scss';
 import { FLIGHT_API_LINK } from '../../config';
 import axios from 'axios';
-import Error from '../Error/Error';
+import Error from './../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
 import NoContent from '../../components/NoContent/NoContent';
 
