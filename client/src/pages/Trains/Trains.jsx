@@ -3,7 +3,7 @@ import TrainCard from '../../components/TrainCard/TrainCard';
 import TrainInputBox from '../../components/TrainInputBox/TrainInputBox';
 import './Trains.scss';
 import axios from 'axios';
-import { TRAIN_API_LINK } from '../../config';
+import { TRAIN_API_LINK, TRAIN_API_LINK_TWO } from '../../config';
 import Loading from '../../components/Loading/Loading';
 import Error from './../../components/Error/Error';
 import NoContent from '../../components/NoContent/NoContent';
@@ -22,8 +22,15 @@ const Trains = () => {
 			setFilteredTrains(data.data);
 			setIsLoading(false);
 		} catch (err) {
-			setError(err.message);
-			setIsLoading(false);
+			try {
+				const { data } = await axios.get(TRAIN_API_LINK_TWO);
+				setTrains(data);
+				setFilteredTrains(data);
+				setIsLoading(false);
+			} catch (err) {
+				setError(err.message);
+				setIsLoading(false);
+			}
 		}
 	};
 

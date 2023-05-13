@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import FlightCard from '../../components/FlightCard/FlightCard';
 import FlightInputBox from '../../components/FlightInputBox/FlightInputBox';
 import './Flights.scss';
-import { FLIGHT_API_LINK } from '../../config';
+import { FLIGHT_API_LINK, FLIGHT_API_LINK_TWO } from '../../config';
 import axios from 'axios';
 import Error from './../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
@@ -22,8 +22,15 @@ const Flights = () => {
 			setFilteredFlight(data.data);
 			setIsLoading(false);
 		} catch (err) {
-			setError(err.message);
-			setIsLoading(false);
+			try {
+				const { data } = await axios.get(FLIGHT_API_LINK_TWO);
+				setFlights(data);
+				setFilteredFlight(data);
+				setIsLoading(false);
+			} catch (err) {
+				setError(err.message);
+				setIsLoading(false);
+			}
 		}
 	};
 

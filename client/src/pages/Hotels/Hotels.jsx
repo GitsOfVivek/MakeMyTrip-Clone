@@ -3,7 +3,7 @@ import HotelCard from '../../components/HotelCard/HotelCard';
 import HotelInputBox from '../../components/HotelInputBox/HotelInputBox';
 import './Hotels.scss';
 import axios from 'axios';
-import { HOTEL_API_LINK } from '../../config';
+import { FLIGHT_API_LINK_TWO, HOTEL_API_LINK, HOTEL_API_LINK_TWO } from '../../config';
 import Error from './../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
 import NoContent from '../../components/NoContent/NoContent';
@@ -22,8 +22,15 @@ const Hotels = () => {
 			setFliteredHotels(data.data);
 			setIsLoading(false);
 		} catch (err) {
-			setError(err.message);
-			setIsLoading(false);
+			try {
+				const { data } = await axios.get(HOTEL_API_LINK_TWO);
+				setHotels(data);
+				setFliteredHotels(data);
+				setIsLoading(false);
+			} catch (err) {
+				setError(err.message);
+				setIsLoading(false);
+			}
 		}
 	};
 
