@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Header2 from '../../components/Header2/Header2';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { RxCross2 } from 'react-icons/rx';
 import { FiCheck } from 'react-icons/fi';
 import {
 	cvv_format,
@@ -27,6 +28,25 @@ const Checkout = () => {
 	const [state, setState] = useState(initialState);
 	const [isModalHiden, setIsModalHiden] = useState(true);
 	const [error, setError] = useState('');
+	const totalDay =
+		(new Date(ticket?.check_out)?.getTime() -
+			new Date(ticket?.check_in)?.getTime()) /
+		(1000 * 60 * 60 * 24);
+
+	const [totalAmount, setTotalAmount] = useState(
+		ticket?.price
+			? ticket?.price * 1 + (ticket?.price * 0.03)?.toFixed(0) * 1
+			: ticket?.price_per_night * totalDay +
+					ticket?.price_per_night * 0.03
+	);
+	const [selectedPromoCode, setSelectedPromoCode] = useState('INITIAL-0');
+	const [inputText, setInputText] = useState('');
+	const paymentSuccess = () => {
+		if (error === '') {
+			setState(initialState);
+			setIsModalHiden(false);
+		}
+	};
 
 	const changehandler = e => {
 		setError('');
@@ -44,17 +64,6 @@ const Checkout = () => {
 		});
 	};
 
-	const totalDay =
-		(new Date(ticket?.check_out)?.getTime() -
-			new Date(ticket?.check_in)?.getTime()) /
-		(1000 * 60 * 60 * 24);
-
-	const paymentSuccess = () => {
-		if (error === '') {
-			setState(initialState);
-			setIsModalHiden(false);
-		}
-	};
 	const payHandler = () => {
 		if (state.name.trim() === '') {
 			setError('name');
@@ -339,54 +348,117 @@ const Checkout = () => {
 												  ).toLocaleString()}
 										</span>
 									</div>
-								</div>
-								<div className="total">
-									<div>
-										<span>Total Amount</span>
-										<span>
-											₹{' '}
-											{ticket?.price
-												? (
-														ticket?.price * 1 +
-														(
-															ticket?.price * 0.03
-														)?.toFixed(0) *
-															1
-												  )?.toLocaleString()
-												: (
-														ticket?.price_per_night *
-															totalDay +
-														ticket?.price_per_night *
-															0.03
-												  ).toLocaleString()}
-										</span>
+									{!Number(
+										selectedPromoCode.split('-').at(-1)
+									) <= 0 && (
+										<div className="total">
+											<div>
+												<span>Total Amount</span>
+												<span>
+													<span
+														style={{
+															color: 'green',
+															fontSize: '15px',
+															margin: '0 5px 0 0',
+														}}>
+														₹{' '}
+														{selectedPromoCode
+															.split('-')
+															.at(-1)}{' '}
+														% off
+													</span>
+
+													<span
+														style={{
+															textDecoration:
+																'line-through',
+															fontSize: '13px',
+														}}>
+														₹{' '}
+														{totalAmount.toLocaleString()}
+													</span>
+												</span>
+											</div>
+										</div>
+									)}
+									<div className="total">
+										<div>
+											<span>Payable Amount</span>
+											<span>
+												₹{' '}
+												{(
+													(totalAmount *
+														(100 -
+															selectedPromoCode
+																.split('-')
+																.at(-1))) /
+													100
+												).toLocaleString()}
+											</span>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div className="promo">
 								<div className="heading">Promo Codes</div>
 								<div className="code-wrapper">
-									<input
-										type="text"
-										className="promo-input"
-										placeholder="Enter promo code here"
-									/>
+									<div className="in">
+										<input
+											disabled={true}
+											type="text"
+											className="promo-input"
+											placeholder="Enter promo code here"
+											value={inputText}
+											onChange={e => {
+												setInputText(e.target.value);
+												setSelectedPromoCode(
+													e.target.value
+												);
+											}}
+										/>
+										{inputText.trim() && (
+											<RxCross2
+												onClick={() => {
+													setSelectedPromoCode(
+														'INITIAL-0'
+													);
+													setInputText('');
+												}}
+												className="icon"
+											/>
+										)}
+									</div>
 
-									<div className="code">
+									<div
+										onClick={() => {
+											setSelectedPromoCode('MMTCLONE-20');
+											setInputText('MMTCLONE20');
+										}}
+										className="code">
 										<span>MMTCLONE20</span>
 										<p>
 											Lorem ipsum dolor sit amet
 											consectetur adipisicing elit.
 										</p>
 									</div>
-									<div className="code">
+									<div
+										onClick={() => {
+											setSelectedPromoCode('NEW-30');
+											setInputText('NEW30');
+										}}
+										className="code">
 										<span>NEW30</span>
 										<p>
 											Lorem ipsum dolor sit amet
 											consectetur adipisicing elit.
 										</p>
 									</div>
-									<div className="code">
+									<div
+										onClick={() => {
+											setSelectedPromoCode('VIVEK-50');
+											setInputText('VIVEK50');
+										}}
+										className="code">
 										<span>VIVEK50</span>
 										<p>
 											Lorem ipsum dolor sit amet
@@ -438,19 +510,14 @@ const Checkout = () => {
 								<span>Amount</span>
 								<span>
 									₹{' '}
-									{ticket?.price
-										? (
-												ticket?.price * 1 +
-												(ticket?.price * 0.03)?.toFixed(
-													0
-												) *
-													1
-										  )?.toLocaleString()
-										: (
-												ticket?.price_per_night *
-													totalDay +
-												ticket?.price_per_night * 0.03
-										  ).toLocaleString()}
+									{(
+										(totalAmount *
+											(100 -
+												selectedPromoCode
+													.split('-')
+													.at(-1))) /
+										100
+									).toLocaleString()}
 								</span>
 							</div>
 						</div>

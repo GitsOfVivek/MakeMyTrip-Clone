@@ -3,7 +3,7 @@ import HotelCard from '../../components/HotelCard/HotelCard';
 import HotelInputBox from '../../components/HotelInputBox/HotelInputBox';
 import './Hotels.scss';
 import axios from 'axios';
-import { FLIGHT_API_LINK_TWO, HOTEL_API_LINK, HOTEL_API_LINK_TWO } from '../../config';
+import { HOTEL_API_LINK, HOTEL_API_LINK_TWO } from '../../config';
 import Error from './../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
 import NoContent from '../../components/NoContent/NoContent';
